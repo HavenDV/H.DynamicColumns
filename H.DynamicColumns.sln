@@ -14,8 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{2CEE27
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "H.DynamicColumns.Shared", "src\shared\H.DynamicColumns.Shared\H.DynamicColumns.Shared.shproj", "{BA613475-621F-4787-B5C6-77758E53450B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.DynamicColumns.Uwp", "src\libs\H.DynamicColumns.Uwp\H.DynamicColumns.Uwp.csproj", "{ED5CBE56-E894-4D39-8DEA-7B705D1D5092}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.DynamicColumns.Wpf", "src\libs\H.DynamicColumns.Wpf\H.DynamicColumns.Wpf.csproj", "{65786107-E646-452E-B899-EDD26D09E401}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9972D12E-4770-4883-AE5D-98412271DE83}"
@@ -32,7 +30,6 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\shared\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems*{65786107-e646-452e-b899-edd26d09e401}*SharedItemsImports = 5
 		src\shared\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems*{ba613475-621f-4787-b5c6-77758e53450b}*SharedItemsImports = 13
-		src\shared\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems*{ed5cbe56-e894-4d39-8dea-7b705d1d5092}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,10 +40,6 @@ Global
 		{25E33381-06C1-4AC0-B875-622F01B1359A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25E33381-06C1-4AC0-B875-622F01B1359A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25E33381-06C1-4AC0-B875-622F01B1359A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ED5CBE56-E894-4D39-8DEA-7B705D1D5092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ED5CBE56-E894-4D39-8DEA-7B705D1D5092}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ED5CBE56-E894-4D39-8DEA-7B705D1D5092}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ED5CBE56-E894-4D39-8DEA-7B705D1D5092}.Release|Any CPU.Build.0 = Release|Any CPU
 		{65786107-E646-452E-B899-EDD26D09E401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{65786107-E646-452E-B899-EDD26D09E401}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65786107-E646-452E-B899-EDD26D09E401}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,7 +51,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{25E33381-06C1-4AC0-B875-622F01B1359A} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
 		{BA613475-621F-4787-B5C6-77758E53450B} = {2CEE2766-3A6D-4891-9416-01E4FAC0B243}
-		{ED5CBE56-E894-4D39-8DEA-7B705D1D5092} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
 		{65786107-E646-452E-B899-EDD26D09E401} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
