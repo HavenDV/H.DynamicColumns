@@ -2,14 +2,9 @@
 on: [ push ]
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        dotnet: [ '6.0.x' ]
-        os: [ windows-latest ]
-
-    runs-on: ${{ matrix.os }}
-    name: ${{ matrix.os }} - ${{ matrix.dotnet }}
+  Build:
+    name: Build all projects and publish to NuGet
+    runs-on: windows-latest
     env:
       DOTNET_NOLOGO: true
     
@@ -30,8 +25,8 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{ matrix.dotnet }}
-        prerelease: true
+        dotnet-version: '6.0.x'
+        include-prerelease: true
       
     - name: Generate Package Release Notes
       run: |
