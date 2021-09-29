@@ -1,0 +1,38 @@
+﻿#name: .NET
+#on: [ push ]
+
+#jobs:
+#  Mobile:
+#    name: Build Uno Mobile project
+#    runs-on: windows-latest # Move to ubuntu later
+#    if: (contains(join(github.event.commits.*.message), 'fix:') || 
+#        contains(join(github.event.commits.*.message), 'feat:'))
+    
+#    steps:
+#    - name: Getting code
+#      uses: actions/checkout@v2
+
+#    - name: Setup .NET
+#      uses: actions/setup-dotnet@v1
+#      with:
+#        dotnet-version: '6.0.x'
+#        include-prerelease: true
+        
+#    - name: Setup JDK
+#      uses: actions/setup-java@v2
+#      with:
+#        distribution: 'zulu'
+#        java-version: '11'
+
+#    - name: Install workloads
+#      run: dotnet workload install 
+#        android
+#        ios
+#        maccatalyst
+#        macos
+        
+#    - name: Build
+#      run: dotnet build 
+#        src/apps/Dedoose.Apps.Uno.Mobile/Dedoose.Apps.Uno.Mobile.csproj 
+#        --configuration Debug 
+#        --nologo
