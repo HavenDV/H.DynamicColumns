@@ -1,0 +1,19 @@
+﻿<Project Sdk="MSBuild.Sdk.Extras">
+
+  <PropertyGroup>
+	<!--;net6.0-maccatalyst;net6.0-android;net6.0-ios;net6.0-macos-->
+    <TargetFrameworks>MonoAndroid10.0;xamarinios10;netstandard2.0;xamarinmac20</TargetFrameworks>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Uno.Microsoft.Toolkit.Uwp.UI.Controls.DataGrid" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\H.DynamicColumns.Core\H.DynamicColumns.Core.csproj" />
+  </ItemGroup>
+  
+  <Import Project="..\..\shared\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems" Label="Shared" />
+
+</Project>
