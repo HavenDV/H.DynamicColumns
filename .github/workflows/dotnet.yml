@@ -1,38 +1,61 @@
-﻿#name: .NET
-#on: [ push ]
+﻿name: .NET
+on: [ push ]
 
-#jobs:
-#  Mobile:
-#    name: Build Uno Mobile project
-#    runs-on: windows-latest # Move to ubuntu later
-#    if: (contains(join(github.event.commits.*.message), 'fix:') || 
-#        contains(join(github.event.commits.*.message), 'feat:'))
+jobs:
+  build:
+    strategy:
+      matrix:
+        dotnet: [ '6.0.x' ]
+        os: [ windows-latest ]
+
+    runs-on: ${{ matrix.os }}
+    name: ${{ matrix.os }} - ${{ matrix.dotnet }}
+    env:
+      DOTNET_NOLOGO: true
     
-#    steps:
-#    - name: Getting code
-#      uses: actions/checkout@v2
+    steps:
+    - name: Getting code
+      uses: actions/checkout@v2
+      with: 
+        fetch-depth: 50
 
-#    - name: Setup .NET
-#      uses: actions/setup-dotnet@v1
-#      with:
-#        dotnet-version: '6.0.x'
-#        include-prerelease: true
+    - name: Generate build number
+      if: contains(join(github.event.commits.*.message), 'fix:') || 
+          contains(join(github.event.commits.*.message), 'feat:') || 
+          contains(join(github.event.commits.*.message), 'perf:')
+      uses: einaregilsson/build-number@v3
+      with:
+        token: ${{ secrets.github_token }}  
+          
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ matrix.dotnet }}
+        prerelease: true
+      
+    - name: Generate Package Release Notes
+      run: |
+        echo 'PACKAGE_RELEASE_NOTES<<EOF' >> $GITHUB_ENV
+        echo '⭐ Last 10 features:' >> $GITHUB_ENV
+        git log -10 --pretty=format:"- %s %cs" --grep=feat >> $GITHUB_ENV
+        echo '' >> $GITHUB_ENV
+        echo '🐞 Last 10 bug fixes:' >> $GITHUB_ENV
+        git log -10 --pretty=format:"- %s %cs" --grep=fix >> $GITHUB_ENV
+        echo '' >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
+    
+    - name: Build
+      run: dotnet build --configuration Release --nologo
+    
+    - name: Run tests
+      run: dotnet test --configuration Release --nologo
         
-#    - name: Setup JDK
-#      uses: actions/setup-java@v2
-#      with:
-#        distribution: 'zulu'
-#        java-version: '11'
-
-#    - name: Install workloads
-#      run: dotnet workload install 
-#        android
-#        ios
-#        maccatalyst
-#        macos
-        
-#    - name: Build
-#      run: dotnet build 
-#        src/apps/Dedoose.Apps.Uno.Mobile/Dedoose.Apps.Uno.Mobile.csproj 
-#        --configuration Debug 
-#        --nologo
+    - name: Publish
+      if: contains(join(github.event.commits.*.message), 'fix:') || 
+          contains(join(github.event.commits.*.message), 'feat:') || 
+          contains(join(github.event.commits.*.message), 'perf:')
+      run: dotnet nuget push
+        src\**.nupkg
+        --api-key ${{ secrets.NUGET_KEY }}
+        --source https://api.nuget.org/v3/index.json
+        --skip-duplicate

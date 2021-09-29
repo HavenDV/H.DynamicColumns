@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.DynamicColumns.Core", "src\libs\H.DynamicColumns.Core\H.DynamicColumns.Core.csproj", "{25E33381-06C1-4AC0-B875-622F01B1359A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}"
+	ProjectSection(SolutionItems) = preProject
+		src\libs\Directory.Build.props = src\libs\Directory.Build.props
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{2CEE2766-3A6D-4891-9416-01E4FAC0B243}"
 EndProject
@@ -14,6 +17,16 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.DynamicColumns.Uwp", "src\libs\H.DynamicColumns.Uwp\H.DynamicColumns.Uwp.csproj", "{ED5CBE56-E894-4D39-8DEA-7B705D1D5092}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.DynamicColumns.Wpf", "src\libs\H.DynamicColumns.Wpf\H.DynamicColumns.Wpf.csproj", "{65786107-E646-452E-B899-EDD26D09E401}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9972D12E-4770-4883-AE5D-98412271DE83}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		src\Directory.Build.props = src\Directory.Build.props
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
