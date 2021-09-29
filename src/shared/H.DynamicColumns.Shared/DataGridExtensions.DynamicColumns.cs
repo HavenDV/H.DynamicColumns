@@ -13,72 +13,72 @@ using Microsoft.Toolkit.Uwp.UI.Controls;
 
 #nullable enable
 
-namespace H.DynamicColumns;
-
-public static class DataGridExtensions
+namespace H.DynamicColumns
 {
-    #region DynamicColumns
-
-    public static readonly DependencyProperty DynamicColumnsProperty =
-        DependencyProperty.RegisterAttached(
-            nameof(DynamicColumnsProperty).Replace("Property", string.Empty),
-            typeof(IEnumerable<DynamicColumn>),
-            typeof(DataGridExtensions),
-            new PropertyMetadata(null, OnDynamicColumnsChanged));
-
-    public static IEnumerable<DynamicColumn>? GetDynamicColumns(DependencyObject element)
+    public static class DataGridExtensions
     {
-        return (IEnumerable<DynamicColumn>?)element.GetValue(DynamicColumnsProperty);
-    }
+        #region DynamicColumns
 
-    public static void SetDynamicColumns(DependencyObject element, IEnumerable<DynamicColumn>? value)
-    {
-        element.SetValue(DynamicColumnsProperty, value);
-    }
+        public static readonly DependencyProperty DynamicColumnsProperty =
+            DependencyProperty.RegisterAttached(
+                nameof(DynamicColumnsProperty).Replace("Property", string.Empty),
+                typeof(IEnumerable<DynamicColumn>),
+                typeof(DataGridExtensions),
+                new PropertyMetadata(null, OnDynamicColumnsChanged));
 
-    private static void OnDynamicColumnsChanged(
-        DependencyObject element,
-        DependencyPropertyChangedEventArgs args)
-    {
-        if (element is not DataGrid dataGrid)
+        public static IEnumerable<DynamicColumn>? GetDynamicColumns(DependencyObject element)
         {
-            throw new ArgumentException("Element should be DataGrid.");
+            return (IEnumerable<DynamicColumn>?)element.GetValue(DynamicColumnsProperty);
         }
 
-        if (args.OldValue is IEnumerable<DynamicColumn> oldFields)
+        public static void SetDynamicColumns(DependencyObject element, IEnumerable<DynamicColumn>? value)
         {
-            RemoveColumns(dataGrid, oldFields);
-        }
-        if (args.NewValue is not IEnumerable<DynamicColumn> fields)
-        {
-            throw new ArgumentException($"Value should be {nameof(IEnumerable<DynamicColumn>)}.");
+            element.SetValue(DynamicColumnsProperty, value);
         }
 
-        AddColumns(dataGrid, fields);
-    }
-
-    private static void AddColumns(
-        DataGrid dataGrid,
-        IEnumerable<DynamicColumn> dynamicColumns)
-    {
-        foreach (var dynamicColumn in dynamicColumns)
+        private static void OnDynamicColumnsChanged(
+            DependencyObject element,
+            DependencyPropertyChangedEventArgs args)
         {
-            var column = new DataGridTemplateColumn
+            if (element is not DataGrid dataGrid)
             {
-                Header = dynamicColumn.Header,
-            };
-            var path = dynamicColumn.BindingPath;
+                throw new ArgumentException("Element should be DataGrid.");
+            }
+
+            if (args.OldValue is IEnumerable<DynamicColumn> oldFields)
+            {
+                RemoveColumns(dataGrid, oldFields);
+            }
+            if (args.NewValue is not IEnumerable<DynamicColumn> fields)
+            {
+                throw new ArgumentException($"Value should be {nameof(IEnumerable<DynamicColumn>)}.");
+            }
+
+            AddColumns(dataGrid, fields);
+        }
+
+        private static void AddColumns(
+            DataGrid dataGrid,
+            IEnumerable<DynamicColumn> dynamicColumns)
+        {
+            foreach (var dynamicColumn in dynamicColumns)
+            {
+                var column = new DataGridTemplateColumn
+                {
+                    Header = dynamicColumn.Header,
+                };
+                var path = dynamicColumn.BindingPath;
 
 #if WPF_APP
-            var textBlock = new FrameworkElementFactory(typeof(TextBlock));
-            textBlock.SetBinding(
-                TextBlock.TextProperty,
-                new Binding(path));
+                var textBlock = new FrameworkElementFactory(typeof(TextBlock));
+                textBlock.SetBinding(
+                    TextBlock.TextProperty,
+                    new Binding(path));
 
-            column.CellTemplate = new DataTemplate()
-            {
-                VisualTree = textBlock,
-            };
+                column.CellTemplate = new DataTemplate()
+                {
+                    VisualTree = textBlock,
+                };
 #else
             column.CellTemplate = XamlReader.Load(@$"<DataTemplate xmlns=""http://schemas.microsoft.com/winfx/2006/xaml/presentation"">
 <TextBlock
@@ -88,22 +88,23 @@ public static class DataGridExtensions
 </DataTemplate>") as DataTemplate;
 #endif
 
-            dataGrid.Columns.Add(column);
+                dataGrid.Columns.Add(column);
+            }
         }
-    }
 
-    private static void RemoveColumns(
-        DataGrid dataGrid,
-        IEnumerable<DynamicColumn> dynamicColumns)
-    {
-        foreach (var dynamicColumn in dynamicColumns)
+        private static void RemoveColumns(
+            DataGrid dataGrid,
+            IEnumerable<DynamicColumn> dynamicColumns)
         {
-            var column = dataGrid.Columns
-                .FirstOrDefault(column => (string)column.Header == dynamicColumn.Header);
+            foreach (var dynamicColumn in dynamicColumns)
+            {
+                var column = dataGrid.Columns
+                    .FirstOrDefault(column => (string)column.Header == dynamicColumn.Header);
 
-            _ = dataGrid.Columns.Remove(column);
+                _ = dataGrid.Columns.Remove(column);
+            }
         }
-    }
 
-    #endregion
+        #endregion
+    }
 }
