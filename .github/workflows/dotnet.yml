@@ -45,7 +45,9 @@ jobs:
         echo 'EOF' >> $GITHUB_ENV
     
     - name: Build
-      run: dotnet build --configuration Release --nologo
+      run: msbuild
+        /property:Configuration=Release
+        /restore
         
     - name: Publish
       if: contains(join(github.event.commits.*.message), 'fix:') || 
