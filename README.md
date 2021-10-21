@@ -5,7 +5,7 @@
 [![Requirements](https://img.shields.io/badge/Requirements-.NET%20Standard%202.0-blue.svg)](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md)
 [![Requirements](https://img.shields.io/badge/Requirements-.NET%20Framework%204.0-blue.svg)](https://github.com/microsoft/dotnet/blob/master/releases/net40/README.md)
 [![Requirements](https://img.shields.io/badge/Requirements-.NET%20Framework%204.5-blue.svg)](https://github.com/microsoft/dotnet/blob/master/releases/net45/README.md)
-[![Build Status](https://github.com/HavenDV/H.DynamicColumns/workflows/dotnet.yml/badge.svg)](https://github.com/HavenDV/H.DynamicColumns/actions/workflows/dotnet.yml)
+[![Build Status](https://github.com/HavenDV/H.DynamicColumns/actions/workflows/dotnet.yml/badge.svg)](https://github.com/HavenDV/H.DynamicColumns/actions/workflows/dotnet.yml)
 
 Adds support for dynamic columns to DataGrid for WPF/UWP/Uno platforms.
 
