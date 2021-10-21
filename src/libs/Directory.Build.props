@@ -27,7 +27,7 @@
     <PackageProjectUrl>https://github.com/HavenDV/H.DynamicColumns</PackageProjectUrl>
     <RepositoryUrl>https://github.com/HavenDV/H.DynamicColumns</RepositoryUrl>
     <PackageIcon>nuget_icon.png</PackageIcon>
-    <!--<PackageReadmeFile>README.md</PackageReadmeFile>-->
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup Label="Nuget">
