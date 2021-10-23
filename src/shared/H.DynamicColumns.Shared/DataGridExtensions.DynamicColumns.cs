@@ -28,11 +28,15 @@ namespace H.DynamicColumns
 
         public static IEnumerable<DynamicColumn>? GetDynamicColumns(DependencyObject element)
         {
+            element = element ?? throw new ArgumentNullException(nameof(element));
+
             return (IEnumerable<DynamicColumn>?)element.GetValue(DynamicColumnsProperty);
         }
 
         public static void SetDynamicColumns(DependencyObject element, IEnumerable<DynamicColumn>? value)
         {
+            element = element ?? throw new ArgumentNullException(nameof(element));
+
             element.SetValue(DynamicColumnsProperty, value);
         }
 
