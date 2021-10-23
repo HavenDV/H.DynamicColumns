@@ -1,34 +1,35 @@
-﻿namespace H.DynamicColumns.Apps.Wpf;
-
-public partial class MainWindow
+﻿namespace H.DynamicColumns.Apps.Wpf
 {
-    #region Properties
-
-    public List<DynamicColumn> DynamicColumns { get; } =  Enumerable
-        .Range(0, 100)
-        .Select(static i => new DynamicColumn
-        {
-            Header = $"Column{i}",
-            BindingPath = $"Values[{i}]",
-        })
-        .ToList();
-
-    public List<ItemViewModel> Items { get; } = Enumerable
-        .Range(0, 100)
-        .Select(static i => new ItemViewModel
-        { 
-            Name = $"Name{i}",
-        })
-        .ToList();
-
-    #endregion
-
-    #region Constructors
-
-    public MainWindow()
+    public partial class MainWindow
     {
-        InitializeComponent();
-    }
+        #region Properties
 
-    #endregion
+        public List<DynamicColumn> DynamicColumns { get; } = Enumerable
+            .Range(0, 100)
+            .Select(static i => new DynamicColumn
+            {
+                Header = $"Column{i}",
+                BindingPath = $"Values[{i}]",
+            })
+            .ToList();
+
+        public List<ItemViewModel> Items { get; } = Enumerable
+            .Range(0, 100)
+            .Select(static i => new ItemViewModel
+            {
+                Name = $"Name{i}",
+            })
+            .ToList();
+
+        #endregion
+
+        #region Constructors
+
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        #endregion
+    }
 }
