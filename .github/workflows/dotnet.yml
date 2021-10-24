@@ -6,8 +6,8 @@ jobs:
     name: Build, test and publish
     uses: HavenDV/workflows/.github/workflows/dotnet_build-test-publish.yml@main
     with:
-      os: windows-latest
-      build-with-msbuild: true
+      os: windows-2022
+      use-msbuild: true
       run-tests: false
     secrets:
       nuget-key: ${{ secrets.NUGET_KEY }}
