@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0-windows10.0.18362.0;net6.0-windows10.0.18362.0</TargetFrameworks>
+    <UseWinUI>true</UseWinUI>
+    <DefineConstants>$(DefineConstants);HAS_WINUI</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.1-preview3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\H.DynamicColumns.Core\H.DynamicColumns.Core.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\..\shared\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems" Label="Shared" />
+
+</Project>

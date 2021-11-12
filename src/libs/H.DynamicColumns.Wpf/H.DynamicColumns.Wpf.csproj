@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFrameworks>net4.0;net4.5;net5.0-windows;net6.0-windows</TargetFrameworks>
-	<UseWPF>true</UseWPF>
+	  <UseWPF>true</UseWPF>
     <RootNamespace>H.DynamicColumns</RootNamespace>
-    <DefineConstants>$(DefineConstants);WPF_APP</DefineConstants>
+    <DefineConstants>$(DefineConstants);HAS_WPF</DefineConstants>
   </PropertyGroup>
 
   <Import Project="..\..\shared\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems" Label="Shared" />

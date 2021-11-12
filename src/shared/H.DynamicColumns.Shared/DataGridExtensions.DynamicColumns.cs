@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-#if WPF_APP
+#if HAS_WPF
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+#elif HAS_WINUI
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Markup;
+using CommunityToolkit.WinUI.UI.Controls;
 #else
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
@@ -73,7 +77,7 @@ public static class DataGridExtensions
             };
             var path = dynamicColumn.BindingPath;
 
-#if WPF_APP
+#if HAS_WPF
             var textBlock = new FrameworkElementFactory(typeof(TextBlock));
             textBlock.SetBinding(
                 TextBlock.TextProperty,
