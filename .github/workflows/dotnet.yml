@@ -8,6 +8,7 @@ jobs:
     with:
       os: windows-2022
       use-msbuild: true
-      run-tests: false
+      windows-sdk-version: 18362
+      windows-sdk-version2: 16299
     secrets:
       nuget-key: ${{ secrets.NUGET_KEY }}
