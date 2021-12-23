@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net4.0;net4.5;net5.0-windows;net6.0-windows</TargetFrameworks>
+    <TargetFrameworks>net4.5.1;net5.0-windows;net6.0-windows</TargetFrameworks>
 	  <UseWPF>true</UseWPF>
     <RootNamespace>H.DynamicColumns</RootNamespace>
     <DefineConstants>$(DefineConstants);HAS_WPF</DefineConstants>
   </PropertyGroup>
 
-  <Import Project="..\..\shared\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems" Label="Shared" />
+  <Import Project="..\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems" Label="Shared" />
 
   <ItemGroup>
     <ProjectReference Include="..\H.DynamicColumns.Core\H.DynamicColumns.Core.csproj" />
