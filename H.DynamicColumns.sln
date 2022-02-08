@@ -34,8 +34,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.DynamicColumns.WinUI", "s
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "H.DynamicColumns.Shared", "src\libs\H.DynamicColumns.Shared\H.DynamicColumns.Shared.shproj", "{BA613475-621F-4787-B5C6-77758E53450B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H.DynamicColumns.Uno.WinUI", "src\libs\H.DynamicColumns.Uno.WinUI\H.DynamicColumns.Uno.WinUI.csproj", "{106C2943-BA39-4A7F-8B00-597D707B74E7}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		src\libs\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems*{106c2943-ba39-4a7f-8b00-597d707b74e7}*SharedItemsImports = 5
 		src\libs\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems*{16a17957-6de3-4874-b0b6-08404c23fbbe}*SharedItemsImports = 5
 		src\libs\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems*{4c9d44c6-1dcf-4186-ba1e-60f55c0a9df9}*SharedItemsImports = 5
 		src\libs\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems*{65786107-e646-452e-b899-edd26d09e401}*SharedItemsImports = 5
@@ -71,6 +74,10 @@ Global
 		{4C9D44C6-1DCF-4186-BA1E-60F55C0A9DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C9D44C6-1DCF-4186-BA1E-60F55C0A9DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C9D44C6-1DCF-4186-BA1E-60F55C0A9DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{106C2943-BA39-4A7F-8B00-597D707B74E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{106C2943-BA39-4A7F-8B00-597D707B74E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{106C2943-BA39-4A7F-8B00-597D707B74E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{106C2943-BA39-4A7F-8B00-597D707B74E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +90,7 @@ Global
 		{8C2D2DDA-890B-4F6F-938F-9CFDF82AAC0F} = {464A41EC-E4D1-4BC3-93BD-A48E3449A4BD}
 		{4C9D44C6-1DCF-4186-BA1E-60F55C0A9DF9} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
 		{BA613475-621F-4787-B5C6-77758E53450B} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
+		{106C2943-BA39-4A7F-8B00-597D707B74E7} = {A81088C2-A6AF-4CB6-8F36-DF8C0E6D45B3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6AF160D8-AC25-4835-84D4-A42A72264F88}

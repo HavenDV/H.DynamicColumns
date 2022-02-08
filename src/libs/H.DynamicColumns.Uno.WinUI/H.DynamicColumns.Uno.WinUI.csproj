@@ -7,9 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Uno.WinUI" Version="3.10.7" />
+    <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.100-dev.7.g758154cb81" />
   </ItemGroup>
 
-  <Import Project="..\..\shared\H.XamlExtensions.Shared\H.XamlExtensions.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\H.DynamicColumns.Core\H.DynamicColumns.Core.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\H.DynamicColumns.Shared\H.DynamicColumns.Shared.projitems" Label="Shared" />
 
 </Project>

@@ -14,12 +14,14 @@ Adds support for dynamic columns to DataGrid for WPF/UWP/Uno platforms.
 [![NuGet](https://img.shields.io/nuget/dt/H.DynamicColumns.Core.svg?style=flat-square&label=H.DynamicColumns.Core)](https://www.nuget.org/packages/H.DynamicColumns.Core/)
 [![NuGet](https://img.shields.io/nuget/dt/H.DynamicColumns.Wpf.svg?style=flat-square&label=H.DynamicColumns.Wpf)](https://www.nuget.org/packages/H.DynamicColumns.Wpf/)
 [![NuGet](https://img.shields.io/nuget/dt/H.DynamicColumns.Uno.svg?style=flat-square&label=H.DynamicColumns.Uno)](https://www.nuget.org/packages/H.DynamicColumns.Uno/)
+[![NuGet](https://img.shields.io/nuget/dt/H.DynamicColumns.Uno.WinUI.svg?style=flat-square&label=H.DynamicColumns.Uno.WinUI)](https://www.nuget.org/packages/H.DynamicColumns.Uno.WinUI/)
 [![NuGet](https://img.shields.io/nuget/dt/H.DynamicColumns.Uwp.svg?style=flat-square&label=H.DynamicColumns.Uwp)](https://www.nuget.org/packages/H.DynamicColumns.Uwp/)
 
 ```
 Install-Package H.DynamicColumns.Core
 Install-Package H.DynamicColumns.Wpf
 Install-Package H.DynamicColumns.Uno
+Install-Package H.DynamicColumns.Uno.WinUI
 Install-Package H.DynamicColumns.Uwp
 ```
 
