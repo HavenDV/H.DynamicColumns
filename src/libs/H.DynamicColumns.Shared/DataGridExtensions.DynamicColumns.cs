@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using DependencyPropertyGenerator;
 #if HAS_WPF
 using System.Windows;
 using System.Windows.Controls;
@@ -19,50 +20,24 @@ using Microsoft.Toolkit.Uwp.UI.Controls;
 
 namespace H.DynamicColumns;
 
-public static class DataGridExtensions
+[AttachedDependencyProperty<IEnumerable<DynamicColumn>, DataGrid>("DynamicColumns")]
+public static partial class DataGridExtensions
 {
     #region DynamicColumns
 
-    public static readonly DependencyProperty DynamicColumnsProperty =
-        DependencyProperty.RegisterAttached(
-            nameof(DynamicColumnsProperty).Replace("Property", string.Empty),
-            typeof(IEnumerable<DynamicColumn>),
-            typeof(DataGridExtensions),
-            new PropertyMetadata(null, OnDynamicColumnsChanged));
-
-    public static IEnumerable<DynamicColumn>? GetDynamicColumns(DependencyObject element)
+    static partial void OnDynamicColumnsChanged(
+        DataGrid sender,
+        IEnumerable<DynamicColumn>? oldValue,
+        IEnumerable<DynamicColumn>? newValue)
     {
-        element = element ?? throw new ArgumentNullException(nameof(element));
-
-        return (IEnumerable<DynamicColumn>?)element.GetValue(DynamicColumnsProperty);
-    }
-
-    public static void SetDynamicColumns(DependencyObject element, IEnumerable<DynamicColumn>? value)
-    {
-        element = element ?? throw new ArgumentNullException(nameof(element));
-
-        element.SetValue(DynamicColumnsProperty, value);
-    }
-
-    private static void OnDynamicColumnsChanged(
-        DependencyObject element,
-        DependencyPropertyChangedEventArgs args)
-    {
-        if (element is not DataGrid dataGrid)
+        if (oldValue is IEnumerable<DynamicColumn> oldFields)
         {
-            throw new ArgumentException("Element should be DataGrid.");
+            RemoveColumns(sender, oldFields);
         }
-
-        if (args.OldValue is IEnumerable<DynamicColumn> oldFields)
+        if (newValue is IEnumerable<DynamicColumn> newFields)
         {
-            RemoveColumns(dataGrid, oldFields);
+            AddColumns(sender, newFields);
         }
-        if (args.NewValue is not IEnumerable<DynamicColumn> fields)
-        {
-            throw new ArgumentException($"Value should be {nameof(IEnumerable<DynamicColumn>)}.");
-        }
-
-        AddColumns(dataGrid, fields);
     }
 
     private static void AddColumns(

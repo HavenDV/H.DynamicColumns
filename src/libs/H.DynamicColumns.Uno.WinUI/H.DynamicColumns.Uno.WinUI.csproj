@@ -1,13 +1,22 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net6.0-ios;net6.0-android31.0;net6.0-macos;net6.0-maccatalyst;MonoAndroid10.0;xamarinios10;xamarinmac20</TargetFrameworks>
+    <!--net6.0-ios;net6.0-android31.0;net6.0-macos;net6.0-maccatalyst;-->
+    <TargetFrameworks>netstandard2.0;MonoAndroid10.0;xamarinios10;xamarinmac20</TargetFrameworks>
     <SignAssembly>false</SignAssembly>
     <DefineConstants>$(DefineConstants);HAS_UNO;HAS_WINUI</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Uno.CommunityToolkit.WinUI.UI.Controls.DataGrid" Version="7.1.100-dev.7.g758154cb81" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DependencyPropertyGenerator" Version="0.27.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="DependencyPropertyGenerator.Core" Version="0.27.5" />
   </ItemGroup>
 
   <ItemGroup>
