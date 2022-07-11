@@ -26,17 +26,17 @@ public static partial class DataGridExtensions
     #region DynamicColumns
 
     static partial void OnDynamicColumnsChanged(
-        DataGrid sender,
+        DataGrid dataGrid,
         IEnumerable<DynamicColumn>? oldValue,
         IEnumerable<DynamicColumn>? newValue)
     {
         if (oldValue is IEnumerable<DynamicColumn> oldFields)
         {
-            RemoveColumns(sender, oldFields);
+            RemoveColumns(dataGrid, oldFields);
         }
         if (newValue is IEnumerable<DynamicColumn> newFields)
         {
-            AddColumns(sender, newFields);
+            AddColumns(dataGrid, newFields);
         }
     }
 
